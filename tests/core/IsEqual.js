@@ -6,7 +6,7 @@
 // ==========================================================================
 
 "import core_test:qunit";
-var SC = require('index'); // load sproutcore/foundation
+var Cs = require('index'); // load sproutcore/foundation
 
 var StringA, StringB, StringC;
 
@@ -21,8 +21,8 @@ module("String's - isEqual", {
 });
 
 test("strings should be equal ",function(){
-	equals(SC.isEqual(StringA,StringB),false);
-	equals(SC.isEqual(StringA,StringC),true);
+	equals(Cs.isEqual(StringA,StringB),false);
+	equals(Cs.isEqual(StringA,StringC),true);
 });
 
 var num1, num2, num3;
@@ -38,8 +38,8 @@ module("Number's - isEqual",{
 });
  
 test("numericals should be equal ",function(){
-    equals(SC.isEqual(num1,num2),true);
-	equals(SC.isEqual(num1,num3),false);
+    equals(Cs.isEqual(num1,num2),true);
+	equals(Cs.isEqual(num1,num3),false);
 }); 
 
 var objectA,objectB, objectC; //global variables
@@ -56,8 +56,8 @@ module("Array's - isEqual",{
 	
 test("array should be equal  ",function(){
 	// NOTE: We don't test for array contents -- that would be too expensive.
-	equals(SC.isEqual(objectA,objectB),false, 'two array instances with the same values should not be equal');
-	equals(SC.isEqual(objectA,objectC),false, 'two array instances with different values should not be equal');
+	equals(Cs.isEqual(objectA,objectB),false, 'two array instances with the same values should not be equal');
+	equals(Cs.isEqual(objectA,objectC),false, 'two array instances with different values should not be equal');
 });	
 
 run();

@@ -6,16 +6,16 @@
 /*globals __filename __dirname */
 
 var Ct = require('core_test'),
-    fs = require('co:fs');
+    Cs = require('index');
     
 // ..........................................................
 // ASYNC
 // 
 
-Ct.module('fs.stat - async');
+Ct.module('Cs.fs.stat - async');
 
 Ct.test("stat non-existant file", function(t, done) {
-  fs.stat('imaginary/path', function(err, stats) {
+  Cs.fs.stat('imaginary/path', function(err, stats) {
     t.ok(err, 'should have an error');
     t.ok(!stats, 'shoudl not return stats');
     done();
@@ -23,7 +23,7 @@ Ct.test("stat non-existant file", function(t, done) {
 });
 
 Ct.test("stat regular file", function(t, done) {
-  fs.stat(__filename, function(err, stats) {
+  Cs.fs.stat(__filename, function(err, stats) {
     t.ok(!err, 'should not have an error');
     t.ok(stats, 'should have a stats object');
     t.equal(stats.isDirectory(), false, 'stats.isDirectory()');
@@ -34,7 +34,7 @@ Ct.test("stat regular file", function(t, done) {
 });
 
 Ct.test("stat directory", function(t, done) {
-  fs.stat(__dirname, function(err, stats) {
+  Cs.fs.stat(__dirname, function(err, stats) {
     t.ok(!err, 'should not have an error');
     t.ok(stats, 'should have a stats object');
     t.equal(stats.isDirectory(), true, 'stats.isDirectory()');
@@ -48,15 +48,15 @@ Ct.test("stat directory", function(t, done) {
 // SYNC
 // 
 
-Ct.module('fs.stat - sync');
+Ct.module('Cs.fs.stat - sync');
 
 Ct.test("stat non-existant file", function(t, done) {
-  t.throws(function() { fs.stat('imaginary/path'); });
+  t.throws(function() { Cs.fs.stat('imaginary/path'); });
   done();
 });
 
 Ct.test("stat regular file", function(t, done) {
-  var stats = fs.stat(__filename);
+  var stats = Cs.fs.stat(__filename);
   t.ok(stats, 'should have a stats object');
   t.equal(stats.isDirectory(), false, 'stats.isDirectory()');
   // TODO: test other attrs
@@ -65,7 +65,7 @@ Ct.test("stat regular file", function(t, done) {
 });
 
 Ct.test("stat directory", function(t, done) {
-  var stats = fs.stat(__dirname);
+  var stats = Cs.fs.stat(__dirname);
   t.ok(stats, 'should have a stats object');
   t.equal(stats.isDirectory(), true, 'stats.isDirectory()');
   // TODO: test other attrs
