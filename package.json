@@ -1,8 +1,12 @@
 {
-  "name": "core_support",
+  "name": "core-support",
   "description": "Portable continuables-based API",
   "author": "Charles Jolley <charles@sproutit.com>",
-  "version": "0.1.1",
+  "version": "0.2.0",
+  
+  "dependencies": {
+    "seed": "0.3.0"
+  },
   
   "repositories": [
     { "type": "git", "url": "git://github.com/sproutit/core_support.git" }
