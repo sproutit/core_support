@@ -2,7 +2,7 @@
   "name": "core-support",
   "description": "Portable continuables-based API",
   "author": "Charles Jolley <charles@sproutit.com>",
-  "version": "0.2.1",
+  "version": "0.2.2",
   
   "dependencies": {
     "seed": "0.3.0"
